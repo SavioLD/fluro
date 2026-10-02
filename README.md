@@ -144,8 +144,14 @@ Navy `#07416b` (70 % der deckenden Logo-Pixel) und Grau `#717777` (30 %).
 --ink-mute:#717777;     /* Grau aus dem Logo */
 ```
 
-Schriften: **Barlow** (Überschriften) und **Inter** (Fließtext), eingebunden
-über Google Fonts im `<head>`.
+Schriften: **Barlow** (Überschriften) und **Inter** (Fließtext). Beide liegen
+**selbst gehostet** in `fonts/` und sind per `@font-face` eingebunden – bewusst
+nicht über `fonts.googleapis.com`: Beim Remote-Einbinden geht die IP jedes
+Besuchers an Google, was in Deutschland abmahnfähig ist (LG München I,
+3 O 17493/20). Nebeneffekt: ein Roundtrip zu einer Fremd-Domain weniger.
+
+Für deutschen Text lädt der Browser nur die `latin`-Subsets (rund 91 KB);
+die `latin-ext`-Dateien bleiben ungenutzt im Repo liegen.
 
 ## 6. Bildmaterial
 
@@ -201,3 +207,11 @@ dem Bildschirm **exakt identisch** – auch bei 320 px Displaybreite.
   `api-v2.lead-table.com` war aus der Build-Umgebung nicht möglich, weil die
   Netzwerk-Policy den Host blockiert. Einmal über die Live-Seite bewerben
   und in der Kachel nachsehen.
+
+---
+
+## 9. Creatives und Social-Assets
+
+Im Ordner `creatives/` liegen 6 Meta-Ad-Creatives (3 Konzepte in 4:5 und 9:16)
+sowie Profil- und Titelbild für die Facebook-Seite. Details und die passenden
+Anzeigen-Deeplinks stehen in `creatives/README.md`.
