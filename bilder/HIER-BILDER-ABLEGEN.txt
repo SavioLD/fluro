@@ -1,0 +1,27 @@
+BILDMATERIAL FÜR DIE KARRIERESEITE
+==================================
+
+Dateien einfach in diesen Ordner (bilder/) legen – die Seite erkennt sie
+automatisch. Es muss KEIN Code angefasst werden. Fehlt eine Datei, bleibt
+der jeweilige Fallback stehen (Schriftzug bzw. Farbverlauf) – es gibt also
+nie ein kaputtes Bild.
+
+1) LOGO (dunkle Variante, für Kopfzeile auf Weiß)
+   bilder/fluro-logo.svg      (bevorzugt)
+   bilder/fluro-logo.png
+   Alternativ: logo.svg / logo.png / logo.jpg
+
+2) LOGO (helle/weiße Variante, für Hero und Footer auf Dunkel)
+   bilder/fluro-logo-weiss.svg   (bevorzugt)
+   bilder/fluro-logo-weiss.png
+   Alternativ: logo-weiss.svg / logo-weiss.png
+   -> Fehlt diese Datei, wird automatisch das normale Logo verwendet.
+
+3) HERO-FOTO (großes Hintergrundbild ganz oben)
+   bilder/hero.jpg   (bevorzugt, ca. 2000 x 1200 px, quer)
+   Alternativ: hero.jpeg / hero.png / hero.webp / fertigung.jpg
+   -> Gut geeignet: Fertigung, Maschinenpark, Mitarbeiter an der Maschine.
+   -> Fehlt die Datei, bleibt der dunkle Farbverlauf stehen.
+
+Hinweis: Das Original-Logo bitte unverändert hochladen – nicht nachbauen,
+nicht einfärben, Seitenverhältnis nicht verzerren.
