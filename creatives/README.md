@@ -17,8 +17,16 @@ dieselben wie auf der Karriereseite.
 | `einzelteilfertigung/` | CNC-Einrichter (m/w/d) Einzelteilfertigung · Traub | `…/fluro/?stelle=traub` |
 | `beide-stellen/` | beide Stellen gemeinsam | `…/fluro/` (ohne Parameter) |
 
-Je Ordner 6 Creatives: 3 Konzepte × 2 Formate (4:5 = 1080 × 1350,
-9:16 = 1080 × 1920). **18 Creatives gesamt.**
+Je Ordner 9 Creatives: 3 Konzepte × 3 Hochformate. **27 Creatives gesamt.**
+
+| Format | Pixel | Wofür |
+|---|---|---|
+| 4:5 | 1080 × 1350 | Feed (Facebook und Instagram) – das höchste Maß, das der Feed annimmt |
+| 3:4 | 1080 × 1440 | organische Beiträge und andere Kanäle |
+| 9:16 | 1080 × 1920 | Stories und Reels |
+
+Für Meta-Anzeigen decken **4:5 und 9:16 bereits alle Platzierungen ab**; 3:4
+ist ein Zusatzmaß und bringt dort keine weitere Platzierung.
 
 ## Die drei Konzepte
 
