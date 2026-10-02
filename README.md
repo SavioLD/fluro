@@ -242,8 +242,9 @@ dem Bildschirm **exakt identisch** – auch bei 320 px Displaybreite.
 
 ## 9. Creatives und Social-Assets
 
-Im Ordner `creatives/` liegen 27 Meta-Ad-Creatives – ein vollständiger Satz je
+Im Ordner `creatives/` liegen 45 Meta-Ad-Creatives – ein vollständiger Satz je
 Stelle (`serienfertigung/`, `einzelteilfertigung/`, `beide-stellen/`), je 3
-Konzepte in den Hochformaten 4:5, 3:4 und 9:16 – sowie Profil- und Titelbild
-für die Facebook-Seite.
+Konzepte in 5 Platzierungsformaten (4:5, 1:1, 9:16, 1,91:1 und 3:4) – sowie
+Profil- und Titelbild für die Facebook-Seite. Wichtig: im Ads Manager je
+Platzierung die passende Datei hochladen, sonst schneidet Meta selbst zu.
 Details und die passenden Anzeigen-Deeplinks stehen in `creatives/README.md`.

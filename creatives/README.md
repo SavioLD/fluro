@@ -17,16 +17,42 @@ dieselben wie auf der Karriereseite.
 | `einzelteilfertigung/` | CNC-Einrichter (m/w/d) Einzelteilfertigung · Traub | `…/fluro/?stelle=traub` |
 | `beide-stellen/` | beide Stellen gemeinsam | `…/fluro/` (ohne Parameter) |
 
-Je Ordner 9 Creatives: 3 Konzepte × 3 Hochformate. **27 Creatives gesamt.**
+Je Ordner 15 Creatives: 3 Konzepte × 5 Platzierungsformate.
+**45 Creatives gesamt.**
 
-| Format | Pixel | Wofür |
+## Welche Datei für welche Platzierung
+
+| Dateiendung | Pixel | Platzierung |
 |---|---|---|
-| 4:5 | 1080 × 1350 | Feed (Facebook und Instagram) – das höchste Maß, das der Feed annimmt |
-| 3:4 | 1080 × 1440 | organische Beiträge und andere Kanäle |
-| 9:16 | 1080 × 1920 | Stories und Reels |
+| `-4x5` | 1080 × 1350 | Facebook- und Instagram-Feed (Hochformat) |
+| `-1x1` | 1080 × 1080 | quadratische Platzierungen, Marketplace, Explore |
+| `-9x16` | 1080 × 1920 | Stories und Reels |
+| `-191x1` | 1200 × 628 | rechte Spalte, Suchergebnisse, Audience Network – die Platzierungen, die zwingend Querformat sind |
+| `-3x4` | 1080 × 1440 | organische Beiträge, andere Kanäle (keine eigene Meta-Platzierung) |
 
-Für Meta-Anzeigen decken **4:5 und 9:16 bereits alle Platzierungen ab**; 3:4
-ist ein Zusatzmaß und bringt dort keine weitere Platzierung.
+## Wichtig: im Ads Manager je Platzierung ersetzen
+
+Wird **eine** Datei hochgeladen, schneidet Meta sie im Schritt *Zuschneiden*
+selbst auf die übrigen Seitenverhältnisse zu – dabei fliegen Button und
+Textzeilen aus dem Bild.
+
+Deshalb im Schritt **Zuschneiden** pro Platzierungskachel auf **„Ersetzen"**
+gehen und die Datei mit dem passenden Seitenverhältnis hochladen:
+
+* 1:1 → `…-1x1.jpg`
+* 9:16 → `…-9x16.jpg`
+* 1,91:1 → `…-191x1.jpg`
+* Feed → `…-4x5.jpg`
+
+Dann wird nichts automatisch beschnitten. Alternativ bei jeder Kachel
+**„Original"** wählen – dann bleibt das Bild unbeschnitten, läuft aber in
+manchen Platzierungen mit Balken.
+
+Geprüft beim Rendern: In allen 45 Creatives liegen Logo, Eyebrow, Headline,
+Subline und Button vollständig innerhalb der Fläche, und kein Text läuft über
+seine Box hinaus. Die Headline wird automatisch verkleinert, falls eine Zeile
+zu breit würde. Zusätzlich wird geprüft, dass das Logo in keinem Layout
+verzerrt dargestellt wird.
 
 ## Die drei Konzepte
 
@@ -42,6 +68,10 @@ echte Varianten zum Ausspielen hat.
 
 Die 9:16-Varianten halten oben 250 px und unten 336 px frei – dort liegt in
 Stories und Reels die Meta-Oberfläche (Profilzeile bzw. CTA-Leiste).
+
+Das Querformat 1,91:1 nutzt ein eigenes Layout: Text links, Foto rechts. Es ist
+nur dabei, damit die zwingend queren Platzierungen eine eigene Datei bekommen
+und Meta das Hochformat nicht selbst beschneidet.
 
 Die Headline skaliert beim Rendern automatisch herunter, falls eine Zeile zu
 breit wird (geprüft: „Einzelteilfertigung." passt bei 94 px, ab 112 px greift
