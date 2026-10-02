@@ -1,27 +1,23 @@
-BILDMATERIAL FÜR DIE KARRIERESEITE
-==================================
+BILDMATERIAL DER KARRIERESEITE
+==============================
 
-Dateien einfach in diesen Ordner (bilder/) legen – die Seite erkennt sie
-automatisch. Es muss KEIN Code angefasst werden. Fehlt eine Datei, bleibt
-der jeweilige Fallback stehen (Schriftzug bzw. Farbverlauf) – es gibt also
-nie ein kaputtes Bild.
+Alle benötigten Dateien liegen bereits in diesem Ordner. Die Seite erkennt sie
+automatisch – es muss kein Code angefasst werden.
 
-1) LOGO (dunkle Variante, für Kopfzeile auf Weiß)
-   bilder/fluro-logo.svg      (bevorzugt)
-   bilder/fluro-logo.png
-   Alternativ: logo.svg / logo.png / logo.jpg
+  logo.png                        Original-Logo (Navy/Grau), Kopfzeile
+  logo-weiss.png                  Original-Logo (weiß), Hero und Footer
+  hero.jpg                        Hintergrundbild im Hero (fürs Web komprimiert)
+  og-bild.jpg                     Vorschaubild beim Teilen (1200 x 630)
 
-2) LOGO (helle/weiße Variante, für Hero und Footer auf Dunkel)
-   bilder/fluro-logo-weiss.svg   (bevorzugt)
-   bilder/fluro-logo-weiss.png
-   Alternativ: logo-weiss.svg / logo-weiss.png
-   -> Fehlt diese Datei, wird automatisch das normale Logo verwendet.
+  zerspaner-mit-teil.png          Quellfoto, unverändert
+  zerspaner-produktionsleiter.png Quellfoto, unverändert
 
-3) HERO-FOTO (großes Hintergrundbild ganz oben)
-   bilder/hero.jpg   (bevorzugt, ca. 2000 x 1200 px, quer)
-   Alternativ: hero.jpeg / hero.png / hero.webp / fertigung.jpg
-   -> Gut geeignet: Fertigung, Maschinenpark, Mitarbeiter an der Maschine.
-   -> Fehlt die Datei, bleibt der dunkle Farbverlauf stehen.
+AUSTAUSCHEN
+Eine Datei einfach unter demselben Namen ersetzen. Für ein neues Hero-Foto:
+als hero.jpg ablegen, quer, ca. 1800 px breit, unter 300 KB. Bitte keine
+mehrere MB großen PNGs direkt einbinden – das kostet auf dem Handy Ladezeit
+und damit Bewerbungen.
 
-Hinweis: Das Original-Logo bitte unverändert hochladen – nicht nachbauen,
-nicht einfärben, Seitenverhältnis nicht verzerren.
+LOGO
+Das Original-Logo wird unverändert verwendet: nicht nachbauen, nicht
+einfärben, Seitenverhältnis nicht verzerren.

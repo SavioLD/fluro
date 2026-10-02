@@ -1,8 +1,12 @@
-# Karriereseite FLURO-Gelenklager GmbH & Martin Höhn GmbH
+# Karriereseite HÖHN Präzisionsteile
 
 Conversion-optimierte Karriere-Landingpage (Ad-Funnel) für zwei Stellen als
 **CNC-Einrichter (m/w/d)** am Standort Rosenfeld. Aufbau und Sektionsstruktur
-1:1 nach dem Vorbild der ALWA-Karriereseite, Texte und CI auf FLURO angepasst.
+1:1 nach dem Vorbild der ALWA-Karriereseite, Texte und CI auf HÖHN angepasst.
+
+Arbeitgeber ist die **FLURO-Gelenklager GmbH & Martin Höhn GmbH**; nach außen
+führt die Marke **HÖHN Präzisionsteile** (geliefertes Logo). Der vollständige
+Firmenname steht in Footer, Einwilligungstext, FAQ und den strukturierten Daten.
 
 Die Seite ist eine einzige Datei: **`index.html`** (HTML, CSS und JS inline,
 keine Build-Tools, keine Abhängigkeiten außer Google Fonts).
@@ -127,36 +131,43 @@ Das Honeypot-Feld (`firma_website`, Spam-Schutz) wird nie mitgesendet.
 Alle Farben und Schriften stecken ausschließlich im `:root`-Block ganz oben in
 `index.html`. Wer dort etwas ändert, ändert die ganze Seite.
 
+Die Farben sind **direkt aus dem Original-Logo gemessen** (`bilder/logo.png`):
+Navy `#07416b` (70 % der deckenden Logo-Pixel) und Grau `#717777` (30 %).
+
 ```css
---brand:#e2001a;        /* FLURO-Rot: Buttons, Akzente, Fortschritt */
---brand-dark:#b80015;   /* Hover-Zustand */
---brand-700:#9e0012;    /* Rot als Textfarbe auf Hell */
---brand-900:#14181d;    /* Anthrazit: Überschriften, Hero, Footer */
---brand-soft:#fff0f1;   /* Zarte Flächen hinter Icons */
---on-brand:#ffffff;     /* Textfarbe auf Rot */
+--brand:#07416b;        /* HÖHN-Navy: Buttons, Akzente, Fortschritt */
+--brand-dark:#052f4e;   /* Hover-Zustand */
+--brand-700:#06395e;    /* Navy als Textfarbe auf Hell */
+--brand-900:#10212e;    /* Dunkles Navy: Überschriften, Hero, Footer */
+--brand-soft:#e8f0f6;   /* Zarte Flächen hinter Icons */
+--on-brand:#ffffff;     /* Textfarbe auf Navy */
+--ink-mute:#717777;     /* Grau aus dem Logo */
 ```
 
 Schriften: **Barlow** (Überschriften) und **Inter** (Fließtext), eingebunden
 über Google Fonts im `<head>`.
 
----
-
 ## 6. Bildmaterial
 
-Dateien in den Ordner `bilder/` legen – die Seite erkennt sie automatisch,
-es muss kein Code angefasst werden. Details siehe
-`bilder/HIER-BILDER-ABLEGEN.txt`.
+Alle Dateien liegen in `bilder/`. Die Seite erkennt sie automatisch, es muss
+kein Code angefasst werden.
 
-| Datei | Wirkung |
+| Datei | Verwendung |
 |---|---|
-| `bilder/fluro-logo.svg` (oder `.png`) | Logo in der Kopfzeile |
-| `bilder/fluro-logo-weiss.svg` (oder `.png`) | Logo in Hero und Footer |
-| `bilder/hero.jpg` | Hintergrundbild im Hero |
+| `logo.png` | Original-Logo (Navy/Grau), Kopfzeile |
+| `logo-weiss.png` | Original-Logo (weiß), Hero und Footer |
+| `hero.jpg` | Hintergrundbild im Hero (1800 × 1032, 166 KB) |
+| `og-bild.jpg` | Vorschaubild beim Teilen (1200 × 630) |
+| `zerspaner-mit-teil.png` | Quellfoto (2000 × 1334) |
+| `zerspaner-produktionsleiter.png` | Quellfoto (2000 × 1202) |
 
-Fehlt eine Datei, bleibt der Fallback stehen (Schriftzug bzw. Farbverlauf) –
-es gibt nie ein kaputtes Bild.
+Die beiden Quellfotos sind bewusst unangetastet im Repo. `hero.jpg` und
+`og-bild.jpg` sind daraus erzeugte, fürs Web komprimierte Zuschnitte – die
+Original-PNGs mit 3,5 bzw. 3,9 MB würden die Ladezeit auf dem Handy und damit
+die Abschlussquote ruinieren.
 
----
+Die Logos werden **unverändert** eingebunden: nicht nachgebaut, nicht
+eingefärbt, Seitenverhältnis nicht verzerrt.
 
 ## 7. Mobile Laufruhe
 
@@ -176,17 +187,17 @@ dem Bildschirm **exakt identisch** – auch bei 320 px Displaybreite.
 
 ## 8. Offene Punkte
 
-* **CI-Farben**: Die Unternehmenswebsite war aus der Build-Umgebung nicht
-  erreichbar (Netzwerk-Policy). Die Werte oben sind eine Annahme
-  (Industrierot + Anthrazit) – bitte mit den echten Hausfarben abgleichen.
-  Anpassung = der `:root`-Block, sonst nichts.
-* **Logo**: wird automatisch übernommen, sobald es in `bilder/` liegt. Bis
-  dahin steht der Schriftzug „FLURO“ als Fallback.
-* **Impressum / Datenschutz**: verlinken aktuell auf `https://fluro.de/de`.
-  Sobald die genauen URLs bekannt sind, im Footer und im Einwilligungstext
-  eintragen (3 Stellen).
+* **Impressum / Datenschutz** verlinken aktuell auf `https://fluro.de/de`.
+  Sobald die genauen URLs bekannt sind, im Footer (2 ×) und im
+  Einwilligungstext (1 ×) eintragen. Ich wollte keine Pfade raten und 404er
+  auf Pflichtlinks riskieren.
 * **Kontaktdaten**: Es wurden bewusst keine Telefonnummer und keine
   E-Mail-Adresse erfunden. Sobald eine Recruiting-Adresse vorliegt, kann sie
   im Footer und unter dem Formular ergänzt werden.
 * **Postleitzahl** im strukturierten Datensatz: 72348 Rosenfeld – bitte kurz
   bestätigen.
+* **Lead-Table-Testeintrag**: Das Payload wurde im Browser abgefangen und
+  geprüft (siehe Abschnitt 4). Ein echter Testlauf gegen
+  `api-v2.lead-table.com` war aus der Build-Umgebung nicht möglich, weil die
+  Netzwerk-Policy den Host blockiert. Einmal über die Live-Seite bewerben
+  und in der Kachel nachsehen.
