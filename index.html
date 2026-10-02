@@ -674,9 +674,11 @@ footer{padding:52px 0 36px;background:var(--brand-900);color:#d7d9dd}
      vollständigen, qualifizierten Bewerbung gesendet – K.-o.-Abbrüche
      verlassen die Seite nie.
      ===================================================================== */
-  /* Standard-Kachel für alle Stellen. Soll eine Stelle in eine EIGENE
-     Lead-Table-Kachel laufen, bekommt sie in JOBS einfach ein eigenes
-     Feld  webhook:"https://…"  – das überschreibt diese URL. */
+  /* Jede Stelle hat ihre EIGENE Lead-Table-Kachel. Die Zuordnung steht
+     unten in JOBS im Feld  webhook:  – das ist die maßgebliche Quelle.
+     Diese URL hier greift nur, falls eine Stelle einmal ohne eigenes
+     webhook-Feld angelegt wird; dann geht die Bewerbung lieber in die
+     Serien-Kachel, als verloren. */
   var WEBHOOK_URL = "https://api-v2.lead-table.com/api/webhook/generic/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0YWJsZUlEIjoiNmFiZjlhZThkZWVmMGVmOTdmMWMxMzk0IiwiY3VzdG9tZXJJRCI6IjZhYmY5YWM0Y2NmNzllZDU1MmM0OWQyNyIsImFnZW5jeUlEIjoiNjliZDc3NzVlNGQxN2IzOGVkNjUzZDE2IiwiaWF0IjoxNzkwOTQxOTI4fQ.zGvG79T-PdKSXdwOtMafB9v_B-PD0gg4QrMSgHz4cn8";
 
   /* =====================================================================
@@ -709,6 +711,8 @@ footer{padding:52px 0 36px;background:var(--brand-900);color:#d7d9dd}
     {
       key:"serienfertigung",
       title:"CNC-Einrichter (m/w/d) Serienfertigung",
+      /* Lead-Table-Kachel "CNC-Einrichter Serienfertigung" (tableID 6abf9ae8…) */
+      webhook:"https://api-v2.lead-table.com/api/webhook/generic/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0YWJsZUlEIjoiNmFiZjlhZThkZWVmMGVmOTdmMWMxMzk0IiwiY3VzdG9tZXJJRCI6IjZhYmY5YWM0Y2NmNzllZDU1MmM0OWQyNyIsImFnZW5jeUlEIjoiNjliZDc3NzVlNGQxN2IzOGVkNjUzZDE2IiwiaWF0IjoxNzkwOTQxOTI4fQ.zGvG79T-PdKSXdwOtMafB9v_B-PD0gg4QrMSgHz4cn8",
       kurz:"Serienfertigung", icon:ICONS.serie,
       teaser:"Star-Langdreher · Fanuc-Steuerung · Serienproduktion",
       hook:"Star-Langdreher mit Fanuc-Steuerung programmieren, rüsten und kontinuierlich optimieren – in der Serienfertigung.",
@@ -739,6 +743,8 @@ footer{padding:52px 0 36px;background:var(--brand-900);color:#d7d9dd}
     {
       key:"einzelteilfertigung",
       title:"CNC-Einrichter (m/w/d) Einzelteilfertigung",
+      /* Lead-Table-Kachel "CNC-Einrichter Einzelteilfertigung" (tableID 6abfbb94…) */
+      webhook:"https://api-v2.lead-table.com/api/webhook/generic/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0YWJsZUlEIjoiNmFiZmJiOTRkYjRiZmVjYjIwOTNiZTEwIiwiY3VzdG9tZXJJRCI6IjZhYmY5YWM0Y2NmNzllZDU1MmM0OWQyNyIsImFnZW5jeUlEIjoiNjliZDc3NzVlNGQxN2IzOGVkNjUzZDE2IiwiaWF0IjoxNzkwOTUwMjkyfQ.zcISqlB_C3LLozC5sZor3himpxot5GiX0dKakWn0PTA",
       kurz:"Einzelteilfertigung", icon:ICONS.einzelteil,
       teaser:"Traub TNA400 · Steuerung TX8i · Losgrößen 5–100",
       hook:"CNC-Drehmaschinen von Traub programmieren und rüsten – komplexe Bauteile in Losgrößen von 5 bis 100 Stück.",
@@ -770,7 +776,6 @@ footer{padding:52px 0 36px;background:var(--brand-900);color:#d7d9dd}
   ];
 
   function jobByKey(k){ for (var i=0;i<JOBS.length;i++){ if (JOBS[i].key===k) return JOBS[i]; } return null; }
-  function jobByTitle(t){ for (var i=0;i<JOBS.length;i++){ if (JOBS[i].title===t) return JOBS[i]; } return null; }
   function esc(t){ return String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
 
   /* ---------------------------------------------------------------------
@@ -1079,7 +1084,10 @@ footer{padding:52px 0 36px;background:var(--brand-900);color:#d7d9dd}
     if (form.querySelector('input[name="firma_website"]').value){ finishSuccess(); return; }
     submitting=true; btnNext.disabled=true; btnNext.textContent="Wird gesendet …"; errBox.classList.remove("is-visible");
     var data=collect(), payload=JSON.stringify(data);
-    var job=jobByTitle(data.stelle);
+    /* Zuordnung über den Stellen-Key des gewählten Radios, nicht über den
+       Titel-Text: so bleibt das Routing auch dann richtig, wenn ein
+       Stellentitel später umformuliert wird. */
+    var job=jobByKey(currentJobKey());
     var url=(job && job.webhook) || WEBHOOK_URL;
     fetch(url,{ method:"POST", headers:{ "Content-Type":"application/json" }, body:payload })
       .then(function(res){ if(!res.ok) throw new Error("HTTP "+res.status); finishSuccess(); })

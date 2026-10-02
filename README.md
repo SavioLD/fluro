@@ -92,10 +92,36 @@ Kriterien.
 
 ---
 
-## 4. Lead Table – Feldzuordnung
+## 4. Lead Table – Zuordnung und Felder
 
-Webhook (generic) der Kachel steht im Script unter `WEBHOOK_URL`.
-Gesendet wird **nur bei vollständiger, qualifizierter Bewerbung**.
+### Eine Kachel je Stelle
+
+Jede Stelle hat ihre **eigene** Lead-Table-Kachel. Die Zuordnung steht in der
+`JOBS`-Konfiguration am Seitenende im Feld `webhook:` – das ist die
+maßgebliche Quelle:
+
+| Stelle | `key` | Lead-Table-Kachel (`tableID`) |
+|---|---|---|
+| CNC-Einrichter (m/w/d) Serienfertigung | `serienfertigung` | `6abf9ae8deef0ef97f1c1394` |
+| CNC-Einrichter (m/w/d) Einzelteilfertigung | `einzelteilfertigung` | `6abfbb94db4bfecb2093be10` |
+
+Das Routing läuft über den **Stellen-Key** des gewählten Radios, nicht über den
+Titel-Text – so bleibt die Zuordnung auch dann richtig, wenn ein Stellentitel
+später umformuliert wird.
+
+`WEBHOOK_URL` ganz oben im Script ist nur noch ein Auffangnetz für den Fall,
+dass eine Stelle einmal ohne eigenes `webhook`-Feld angelegt wird. Dann geht
+die Bewerbung in die Serien-Kachel, statt verloren zu gehen.
+
+Gesendet wird **nur bei vollständiger, qualifizierter Bewerbung**;
+K.-o.-Abbrüche verlassen die Seite nie.
+
+Im Browser geprüft – sowohl über die Stellenauswahl im Formular als auch über
+die Deeplinks `?stelle=star` und `?stelle=traub`: Jede Bewerbung geht an genau
+eine Kachel, und zwar an die richtige. Ein K.-o.-Abbruch löst keinen einzigen
+Request aus.
+
+### Payload
 
 ```json
 {
@@ -112,7 +138,7 @@ Gesendet wird **nur bei vollständiger, qualifizierter Bewerbung**.
   "nicht_erfuellt":       "–",
   "datum":                "02.10.2026",
   "datenschutz":          "Ja (Einwilligung mit Absenden, Art. 6 Abs. 1 lit. a DSGVO)",
-  "quelle":               "Karriere-Landingpage FLURO",
+  "quelle":               "Karriere-Landingpage HÖHN",
   "seite":                "https://saviold.github.io/fluro/"
 }
 ```
@@ -124,7 +150,11 @@ sonst stünde der Name in der Lead Table doppelt. Jedes Feld wird genau einmal
 
 Das Honeypot-Feld (`firma_website`, Spam-Schutz) wird nie mitgesendet.
 
----
+### Eine weitere Stelle anbinden
+
+Neuen Eintrag in `JOBS` anlegen und dort `webhook:"https://…"` auf die neue
+Kachel setzen. Karten, Formular-Auswahl, Deeplink und Routing ziehen
+automatisch nach.
 
 ## 5. CI anpassen
 
@@ -202,11 +232,11 @@ dem Bildschirm **exakt identisch** – auch bei 320 px Displaybreite.
   im Footer und unter dem Formular ergänzt werden.
 * **Postleitzahl** im strukturierten Datensatz: 72348 Rosenfeld – bitte kurz
   bestätigen.
-* **Lead-Table-Testeintrag**: Das Payload wurde im Browser abgefangen und
-  geprüft (siehe Abschnitt 4). Ein echter Testlauf gegen
+* **Lead-Table-Testeintrag**: Payload und Kachel-Zuordnung wurden im Browser
+  abgefangen und geprüft (siehe Abschnitt 4). Ein echter Testlauf gegen
   `api-v2.lead-table.com` war aus der Build-Umgebung nicht möglich, weil die
-  Netzwerk-Policy den Host blockiert. Einmal über die Live-Seite bewerben
-  und in der Kachel nachsehen.
+  Netzwerk-Policy den Host blockiert. Am besten je Stelle einmal über die
+  Live-Seite bewerben und in beiden Kacheln nachsehen.
 
 ---
 
